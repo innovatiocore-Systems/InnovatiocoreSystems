@@ -1,0 +1,115 @@
+.section { background: var(--gray50); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 24px;
+  border: 1.5px solid var(--gray100);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(18,70,240,.16);
+}
+
+.cardHeader {
+  padding: 36px 36px 28px;
+  background: linear-gradient(135deg, rgba(18,70,240,.04) 0%, rgba(6,195,240,.04) 100%);
+  border-bottom: 1.5px solid var(--gray100);
+}
+
+.cardHeader h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.cardHeader p {
+  color: var(--gray700);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.badge-blue  { background: rgba(18,70,240,.1);  color: var(--blue); }
+.badge-cyan  { background: rgba(6,195,240,.12); color: #0496bb; }
+.badge-green { background: rgba(16,185,129,.1); color: #059669; }
+
+.iconWrap {
+  width: 72px; height: 72px;
+  border-radius: 20px;
+  background: var(--grad);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(18,70,240,.3);
+  margin-bottom: 20px;
+}
+
+.cardBody {
+  padding: 28px 36px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.features { flex: 1; }
+
+.features h4 {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gray400);
+  margin-bottom: 14px;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .92rem;
+  color: var(--gray700);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--gray100);
+}
+.features li:last-child { border-bottom: none; }
+
+.check { color: var(--blue); font-size: .95rem; margin-top: 1px; flex-shrink: 0; }
+
+.cta { margin-top: 24px; }
+.cta .btn, .cta a {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+}
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+}
