@@ -150,6 +150,8 @@
 }
 .toastShow { transform: none; }
 
+.toastError { border-color: rgba(240,68,68,.5); }
+
 .toast span:first-child { font-size: 1.4rem; }
 .toast div p { font-size: .88rem; font-weight: 700; color: #fff; }
 .toast div span { font-size: .78rem; color: rgba(255,255,255,.55); }

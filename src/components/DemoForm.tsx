@@ -7,20 +7,41 @@ const products = [
   'Both Products',
 ]
 
+const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? '6e04ddb1-b66e-47ff-a619-042bcdb2277f'
+
 export default function DemoForm() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [errored, setErrored] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!formRef.current) return
     setSubmitting(true)
-    setTimeout(() => {
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(formRef.current),
+      })
+      const data = await res.json()
+
+      if (data.success) {
+        setSubmitted(true)
+        formRef.current.reset()
+        setTimeout(() => setSubmitted(false), 4000)
+      } else {
+        setErrored(true)
+        setTimeout(() => setErrored(false), 5000)
+      }
+    } catch {
+      setErrored(true)
+      setTimeout(() => setErrored(false), 5000)
+    } finally {
       setSubmitting(false)
-      setSubmitted(true)
-      formRef.current?.reset()
-      setTimeout(() => setSubmitted(false), 4000)
-    }, 1800)
+    }
   }
 
   return (
@@ -44,6 +65,16 @@ export default function DemoForm() {
 
           <div className={`${styles.formWrap} fade-in fade-in-delay-1`}>
             <form ref={formRef} onSubmit={handleSubmit}>
+              <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+              <input type="hidden" name="subject" value="New Demo Request — InnovatioCore Systems" />
+              <input type="hidden" name="from_name" value="InnovatioCore Website" />
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ display: 'none' }}
+              />
               <div className={styles.grid}>
                 <div className={styles.group}>
                   <label htmlFor="fullName">Full Name</label>
@@ -118,6 +149,15 @@ export default function DemoForm() {
         <div>
           <p>Demo Request Sent!</p>
           <span>We'll get back to you within 24 hours.</span>
+        </div>
+      </div>
+
+      {/* Error toast */}
+      <div className={`${styles.toast} ${styles.toastError} ${errored ? styles.toastShow : ''}`}>
+        <span>⚠️</span>
+        <div>
+          <p>Something went wrong</p>
+          <span>Please try again or email us directly.</span>
         </div>
       </div>
     </section>
