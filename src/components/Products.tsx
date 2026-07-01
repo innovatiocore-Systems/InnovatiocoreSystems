@@ -1,32 +1,17 @@
 import styles from './Products.module.css'
+import diagnosLogo from '../assets/products/diagnos-logo.png'
+import workovaLogo from '../assets/products/workova-logo.png'
 
 interface Product {
   id: string
   badges: { label: string; color: string }[]
-  icon: React.ReactNode
+  logo: string
+  logoAlt: string
   title: string
+  tagline?: string
   description: string
   features: string[]
 }
-
-const LabIcon = () => (
-  <svg fill="none" viewBox="0 0 36 36" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="36" height="36">
-    <path d="M14 4v14l-6 8h16l-6-8V4" />
-    <path d="M11 4h14" />
-    <circle cx="18" cy="27" r="1.5" fill="#fff" stroke="none" />
-    <path d="M8 32h20" />
-    <path d="M22 10l4 5" />
-  </svg>
-)
-
-const TeamIcon = () => (
-  <svg fill="none" viewBox="0 0 36 36" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="36" height="36">
-    <circle cx="13" cy="12" r="4.5" />
-    <path d="M5 29c0-4.4 3.6-8 8-8s8 3.6 8 8" />
-    <circle cx="25" cy="13.5" r="3.5" />
-    <path d="M24 21c4 .3 7 3.7 7 8" />
-  </svg>
-)
 
 const products: Product[] = [
   {
@@ -35,7 +20,8 @@ const products: Product[] = [
       { label: 'Healthcare', color: 'blue' },
       { label: 'Software',   color: 'cyan' },
     ],
-    icon: <LabIcon />,
+    logo: diagnosLogo,
+    logoAlt: 'Diagn.OS — Diagnostic Optimized System',
     title: 'Pathology Management System',
     description:
       'A complete lab management solution designed for pathology labs and diagnostic centres. Manage patient registrations, test orders, results, and reports — all in one place.',
@@ -51,18 +37,21 @@ const products: Product[] = [
     id: 'workovaerp',
     badges: [
       { label: 'Enterprise', color: 'green' },
-      { label: 'HR & Workforce', color: 'cyan' },
+      { label: 'Overseas Recruitment', color: 'cyan' },
     ],
-    icon: <TeamIcon />,
+    logo: workovaLogo,
+    logoAlt: 'Workova ERP — From Application to Abroad',
     title: 'workovaERP',
+    tagline: 'Foreign Employment & Deployment ERP',
     description:
-      'A complete manpower management system that helps organizations manage their entire workforce — from hiring and attendance to payroll and performance — all from one unified platform.',
+      'An end-to-end platform for manpower and overseas recruitment agencies — managing candidates all the way from application to abroad, across registration, screening, medical, visa, and deployment, with verification at every step.',
     features: [
-      'Employee records & onboarding',
-      'Attendance & shift scheduling',
-      'Payroll & salary management',
-      'Leave & performance tracking',
-      'Workforce reports & analytics',
+      'Branded, secure portal for each agency',
+      'Candidate registration & eligibility checks',
+      'Job & vacancy management with hiring limits',
+      'Deployment tracking — application to abroad',
+      'Document management & proof-backed verification',
+      'Approval workflows, audit logs & reporting',
     ],
   },
 ]
@@ -100,8 +89,10 @@ export default function Products({ onPreselect }: ProductsProps) {
                     </span>
                   ))}
                 </div>
-                <div className={styles.iconWrap}>{p.icon}</div>
-                <h3>{p.title}</h3>
+                <div className={styles.logo}>
+                  <img src={p.logo} alt={p.logoAlt} />
+                </div>
+                <h3>{p.tagline ?? p.title}</h3>
                 <p>{p.description}</p>
               </div>
 
