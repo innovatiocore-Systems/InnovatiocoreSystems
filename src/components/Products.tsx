@@ -19,12 +19,12 @@ const LabIcon = () => (
   </svg>
 )
 
-const MilkIcon = () => (
+const TeamIcon = () => (
   <svg fill="none" viewBox="0 0 36 36" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="36" height="36">
-    <path d="M18 5 C18 5, 8 16, 8 22 a10 10 0 0 0 20 0 C28 16 18 5 18 5Z" />
-    <path d="M13 24 a5 5 0 0 0 7 3" strokeWidth="1.5" />
-    <path d="M10 10 Q7 8 6 6" />
-    <path d="M26 10 Q29 8 30 6" />
+    <circle cx="13" cy="12" r="4.5" />
+    <path d="M5 29c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+    <circle cx="25" cy="13.5" r="3.5" />
+    <path d="M24 21c4 .3 7 3.7 7 8" />
   </svg>
 )
 
@@ -48,21 +48,21 @@ const products: Product[] = [
     ],
   },
   {
-    id: 'dairy',
+    id: 'workovaerp',
     badges: [
-      { label: 'Agriculture', color: 'green' },
-      { label: 'Dairy',       color: 'cyan' },
+      { label: 'Enterprise', color: 'green' },
+      { label: 'HR & Workforce', color: 'cyan' },
     ],
-    icon: <MilkIcon />,
-    title: 'Mero Dairy',
+    icon: <TeamIcon />,
+    title: 'workovaERP',
     description:
-      'An all-in-one dairy management platform for farms, cooperatives, and distributors. Track milk collection, manage distribution, handle billing, and run your dairy business smarter.',
+      'A complete manpower management system that helps organizations manage their entire workforce — from hiring and attendance to payroll and performance — all from one unified platform.',
     features: [
-      'Milk collection & fat/SNF tracking',
-      'Member & farmer management',
-      'Distribution & delivery tracking',
-      'Billing, payments & accounting',
-      'Daily, weekly & monthly reports',
+      'Employee records & onboarding',
+      'Attendance & shift scheduling',
+      'Payroll & salary management',
+      'Leave & performance tracking',
+      'Workforce reports & analytics',
     ],
   },
 ]
@@ -85,7 +85,7 @@ export default function Products({ onPreselect }: ProductsProps) {
           </span>
           <h2 className="section-title">Software That Solves<br />Industry Challenges</h2>
           <p className="section-sub">
-            Purpose-built platforms for healthcare and agriculture — designed with the end user in mind.
+            Purpose-built platforms for healthcare and enterprise workforce management — designed with the end user in mind.
           </p>
         </div>
 

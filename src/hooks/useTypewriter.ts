@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 const PHRASES = [
   'Healthcare Software Solutions',
-  'Dairy Management Platforms',
+  'Workforce Management Systems',
   'Digital Transformation Tools',
   'Scalable Cloud Systems',
   'Smart Business Automation',

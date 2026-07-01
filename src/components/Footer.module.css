@@ -107,6 +107,29 @@
 }
 .contactItem span:first-child { flex-shrink: 0; margin-top: 1px; }
 
+.emails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.emails a {
+  display: block;
+  font-size: .88rem;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 0;
+  transition: color .2s;
+}
+.emails a:hover { color: #fff; }
+.emailLabel {
+  display: block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 1px;
+}
+
 /* Bottom bar */
 .bottom {
   border-top: 1px solid rgba(255,255,255,.07);

@@ -3,7 +3,7 @@ import styles from './DemoForm.module.css'
 
 const products = [
   'Pathology Management System',
-  'Mero Dairy',
+  'workovaERP',
   'Both Products',
 ]
 

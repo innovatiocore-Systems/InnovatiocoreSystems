@@ -50,7 +50,20 @@ export default function Footer() {
             <h4>Contact</h4>
             <div className={styles.contactItem}>
               <span>📧</span>
-              <span>hello@innovatiocore.com</span>
+              <div className={styles.emails}>
+                <a href="mailto:info@innovatiocoresystems.com">
+                  <span className={styles.emailLabel}>General</span>
+                  info@innovatiocoresystems.com
+                </a>
+                <a href="mailto:support@innovatiocoresystems.com">
+                  <span className={styles.emailLabel}>Support</span>
+                  support@innovatiocoresystems.com
+                </a>
+                <a href="mailto:sales@innovatiocoresystems.com">
+                  <span className={styles.emailLabel}>Sales</span>
+                  sales@innovatiocoresystems.com
+                </a>
+              </div>
             </div>
             <div className={styles.contactItem}>
               <span>📞</span>
