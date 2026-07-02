@@ -8,7 +8,6 @@ interface Product {
   logo: string
   logoAlt: string
   title: string
-  tagline?: string
   description: string
   features: string[]
 }
@@ -41,10 +40,9 @@ const products: Product[] = [
     ],
     logo: workovaLogo,
     logoAlt: 'Workova ERP — From Application to Abroad',
-    title: 'workovaERP',
-    tagline: 'Foreign Employment & Deployment ERP',
+    title: 'Workova ERP',
     description:
-      'An end-to-end platform for manpower and overseas recruitment agencies — managing candidates all the way from application to abroad, across registration, screening, medical, visa, and deployment, with verification at every step.',
+      'An end-to-end platform for manpower and overseas recruitment agencies — from application to abroad.',
     features: [
       'Branded, secure portal for each agency',
       'Candidate registration & eligibility checks',
@@ -92,7 +90,7 @@ export default function Products({ onPreselect }: ProductsProps) {
                 <div className={styles.logo}>
                   <img src={p.logo} alt={p.logoAlt} />
                 </div>
-                <h3>{p.tagline ?? p.title}</h3>
+                <h3>{p.title}</h3>
                 <p>{p.description}</p>
               </div>
 
