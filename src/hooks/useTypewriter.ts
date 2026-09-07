@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react'
 const PHRASES = [
   'Healthcare Software Solutions',
   'Workforce Management Systems',
+  'Event Management Platforms',
+  'Co-Working Space Systems',
   'Digital Transformation Tools',
-  'Scalable Cloud Systems',
   'Smart Business Automation',
 ]
 

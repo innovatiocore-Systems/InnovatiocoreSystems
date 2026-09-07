@@ -1,0 +1,108 @@
+.strip {
+  background: var(--white);
+  padding: 44px 0 40px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--gray400);
+  text-align: center;
+}
+
+.label svg {
+  width: 14px; height: 14px;
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+.marks {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 54px;
+  flex-wrap: wrap;
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  filter: grayscale(1);
+  opacity: .5;
+  transition: filter .3s, opacity .3s, transform .3s;
+}
+
+.mark:hover {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.mark img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Wordmarks for products without a logo file yet */
+.monogram {
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  background: var(--brand-gr);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  flex-shrink: 0;
+}
+
+.word {
+  display: flex;
+  flex-direction: column;
+  font-size: .95rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+
+.word small {
+  font-size: .54rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--gray400);
+}
+
+.more {
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--gray400);
+  filter: none;
+  opacity: .8;
+}
+
+@media (max-width: 860px) {
+  .marks { gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .strip { padding: 34px 0 30px; }
+  .mark img { height: 24px; }
+  .marks { gap: 24px; }
+}

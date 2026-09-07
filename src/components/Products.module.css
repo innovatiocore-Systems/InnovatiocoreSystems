@@ -1,88 +1,160 @@
-.section { background: var(--gray50); }
+.section { background: var(--sky100); }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 24px;
   margin-top: 56px;
 }
 
 .card {
   background: var(--white);
-  border-radius: 24px;
-  border: 1.5px solid var(--gray100);
-  box-shadow: var(--shadow);
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  box-shadow: 0 2px 12px rgba(19,28,61,.05);
   overflow: hidden;
-  transition: transform .3s, box-shadow .3s;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
   display: flex;
   flex-direction: column;
 }
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(18,70,240,.16);
+  border-color: rgba(81,112,255,.45);
+  box-shadow: 0 22px 48px rgba(19,28,61,.12);
+}
+
+/* Featured card — the blue-filled one, mirroring the reference */
+.featured {
+  background: linear-gradient(165deg, #6C87FF 0%, #3D57E8 58%, #2A3EB8 100%);
+  box-shadow: 0 24px 54px rgba(42,62,184,.3);
+}
+.featured:hover { border-color: transparent; }
+
+.flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  top: 22px; right: 22px;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: #fff;
+  color: var(--brand-dp);
+  padding: 5px 11px;
+  border-radius: 999px;
 }
 
 .cardHeader {
-  padding: 36px 36px 28px;
-  background: linear-gradient(135deg, rgba(18,70,240,.04) 0%, rgba(6,195,240,.04) 100%);
-  border-bottom: 1.5px solid var(--gray100);
+  position: relative;
+  padding: 30px 30px 26px;
+  border-bottom: 1px solid var(--gray100);
 }
+.featured .cardHeader { border-bottom-color: rgba(255,255,255,.18); }
 
 .cardHeader h3 {
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--ink);
+  letter-spacing: -.02em;
   margin-bottom: 10px;
 }
 .cardHeader p {
   color: var(--gray700);
-  font-size: .95rem;
-  line-height: 1.7;
+  font-size: .92rem;
+  line-height: 1.72;
 }
+.featured .cardHeader h3 { color: #fff; }
+.featured .cardHeader p  { color: rgba(255,255,255,.78); }
 
 .badges {
   display: flex;
-  gap: 8px;
+  gap: 7px;
   margin-bottom: 20px;
   flex-wrap: wrap;
+  padding-right: 86px;
 }
 
 .badge {
-  font-size: .7rem;
+  font-size: .66rem;
   font-weight: 700;
-  letter-spacing: .07em;
+  letter-spacing: .09em;
   text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 999px;
+  padding: 5px 11px;
+  border-radius: 7px;
 }
 
-.badge-blue  { background: rgba(18,70,240,.1);  color: var(--blue); }
-.badge-cyan  { background: rgba(6,195,240,.12); color: #0496bb; }
-.badge-green { background: rgba(16,185,129,.1); color: #059669; }
+.badge-brand  { background: var(--tint-brand);  color: var(--brand-dk); }
+.badge-teal   { background: var(--tint-teal);   color: var(--ac-teal); }
+.badge-orange { background: var(--tint-orange); color: var(--ac-orange); }
+.badge-violet { background: var(--tint-violet); color: var(--ac-violet); }
 
+.featured .badge {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+}
+
+/* Logo / wordmark plate */
 .logo {
   display: inline-flex;
   align-items: center;
-  background: var(--white);
-  border: 1.5px solid var(--gray100);
-  border-radius: 16px;
-  padding: 14px 20px;
-  margin-bottom: 22px;
-  box-shadow: 0 6px 20px rgba(18,70,240,.07);
+  min-height: 62px;
+  background: var(--sky50);
+  border: 1px solid var(--sky-line);
+  border-radius: 14px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+}
+.featured .logo {
+  background: #fff;
+  border-color: #fff;
 }
 .logo img {
-  height: 46px;
+  height: 38px;
   width: auto;
   max-width: 100%;
-  display: block;
+  object-fit: contain;
 }
 
-@media (max-width: 420px) {
-  .logo img { height: 38px; }
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 11px;
 }
 
+.monogram {
+  width: 38px; height: 38px;
+  border-radius: 11px;
+  background: var(--brand-gr);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .88rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  flex-shrink: 0;
+}
+
+.wordmarkText {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+.wordmarkText small {
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--gray400);
+}
+
+/* Body */
 .cardBody {
-  padding: 28px 36px 32px;
+  padding: 24px 30px 30px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -91,37 +163,56 @@
 .features { flex: 1; }
 
 .features h4 {
-  font-size: .78rem;
+  font-size: .68rem;
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--gray400);
   margin-bottom: 14px;
 }
+.featured .features h4 { color: rgba(255,255,255,.6); }
 
 .features li {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: .92rem;
+  font-size: .89rem;
   color: var(--gray700);
-  padding: 7px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--gray100);
 }
 .features li:last-child { border-bottom: none; }
-
-.check { color: var(--blue); font-size: .95rem; margin-top: 1px; flex-shrink: 0; }
-
-.cta { margin-top: 24px; }
-.cta .btn, .cta a {
-  width: 100%;
-  justify-content: center;
-  font-size: 1rem;
-  padding: 15px;
-  border-radius: 12px;
-  display: flex;
+.featured .features li {
+  color: rgba(255,255,255,.85);
+  border-bottom-color: rgba(255,255,255,.14);
 }
 
-@media (max-width: 860px) {
+.check {
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--tint-brand);
+  color: var(--brand-dk);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.check svg { width: 9px; height: 9px; }
+.featured .check { background: rgba(255,255,255,.22); color: #fff; }
+
+.cta { margin-top: 24px; }
+.cta a {
+  width: 100%;
+  font-size: .95rem;
+  padding: 14px;
+}
+
+@media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .cardHeader, .cardBody { padding-left: 22px; padding-right: 22px; }
+  .badges { padding-right: 0; }
+  .flag { position: static; margin-bottom: 14px; }
+  .logo img { height: 32px; }
 }
