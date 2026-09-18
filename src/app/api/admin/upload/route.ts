@@ -37,20 +37,28 @@ export async function POST(request: NextRequest) {
     const filename = `${randomUUID()}${ext}`
     const buffer = Buffer.from(await file.arrayBuffer())
 
-    const { data, error } = await getSupabase().storage.from(BUCKET).upload(filename, buffer, {
+    const { error } = await getSupabase().storage.from(BUCKET).upload(filename, buffer, {
       contentType: file.type,
       cacheControl: '3600',
     })
 
-    if (error) throw new Error(error.message)
+    if (error) {
+      console.error('Upload error:', error)
+      throw new Error(error.message)
+    }
 
     // Generate the public URL
-    const supabaseUrl = process.env.SUPABASE_URL
-    const url = `${supabaseUrl}/storage/v1/object/public/${BUCKET}/${data.path}`
+    const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
+    if (!supabaseUrl) {
+      throw new Error('SUPABASE_URL not configured')
+    }
+
+    const url = `${supabaseUrl}/storage/v1/object/public/${BUCKET}/${filename}`
 
     return NextResponse.json({ url })
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Upload failed'
+    console.error('Upload route error:', message)
     return NextResponse.json({ error: message }, { status: 500 })
   }
 }
