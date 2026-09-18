@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './Services.module.css'
 
 const services = [
@@ -80,12 +81,12 @@ export default function Services() {
               <div className={styles.icon}>{s.icon}</div>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
-              <a href="#demo" className={styles.learn}>
+              <Link href="/contact" className={styles.learn}>
                 Learn More
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
-              </a>
+              </Link>
             </article>
           ))}
         </div>

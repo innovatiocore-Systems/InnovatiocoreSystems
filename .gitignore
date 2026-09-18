@@ -8,9 +8,15 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.next
+out
 dist
 dist-ssr
 *.local
+
+# User-uploaded blog images (generated at runtime, not source)
+public/uploads/blog/*
+!public/uploads/blog/.gitkeep
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +28,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+.env*.local

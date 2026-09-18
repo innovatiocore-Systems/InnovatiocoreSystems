@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './Hero.module.css'
 import { useTypewriter } from '../hooks/useTypewriter'
 
@@ -64,18 +65,18 @@ export default function Hero() {
           </p>
 
           <div className={`${styles.actions} fade-in fade-in-delay-2`}>
-            <a href="#demo" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-primary">
               Get Started
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </a>
-            <a href="#products" className="btn btn-outline">
+            </Link>
+            <Link href="/products" className="btn btn-outline">
               Explore Products
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className={`${styles.typewriter} fade-in fade-in-delay-3`}>

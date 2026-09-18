@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './CtaBanner.module.css'
 
 export default function CtaBanner() {
@@ -14,12 +15,12 @@ export default function CtaBanner() {
             <p>Let&apos;s build something amazing together.</p>
           </div>
 
-          <a href="#demo" className="btn btn-brand">
+          <Link href="/contact" className="btn btn-brand">
             Start Your Project
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17L17 7M9 7h8v8" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

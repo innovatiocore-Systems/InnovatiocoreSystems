@@ -1,4 +1,7 @@
-import { useState, useRef } from 'react'
+'use client'
+
+import { useEffect, useState, useRef } from 'react'
+import { useSearchParams } from 'next/navigation'
 import styles from './DemoForm.module.css'
 
 const products = [
@@ -17,13 +20,37 @@ const points = [
 ]
 
 const WEB3FORMS_ACCESS_KEY =
-  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? '6e04ddb1-b66e-47ff-a619-042bcdb2277f'
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? '6e04ddb1-b66e-47ff-a619-042bcdb2277f'
 
 export default function DemoForm() {
+  const searchParams = useSearchParams()
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [errored, setErrored] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
+  const productRef = useRef<HTMLSelectElement>(null)
+
+  // Preselect + highlight the product dropdown when arriving via a
+  // "Request a Demo" link from the Products page (?product=<title>)
+  useEffect(() => {
+    const product = searchParams.get('product')
+    if (!product || !products.includes(product)) return
+
+    const t = setTimeout(() => {
+      const sel = productRef.current
+      if (!sel) return
+      sel.value = product
+      sel.style.transition = 'border-color .3s, box-shadow .3s'
+      sel.style.borderColor = 'var(--brand)'
+      sel.style.boxShadow = '0 0 0 3px rgba(81,112,255,.22)'
+      setTimeout(() => {
+        sel.style.borderColor = ''
+        sel.style.boxShadow = ''
+      }, 1400)
+    }, 700)
+
+    return () => clearTimeout(t)
+  }, [searchParams])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -31,20 +58,28 @@ export default function DemoForm() {
     setSubmitting(true)
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: new FormData(formRef.current),
-      })
-      const data = await res.json()
-
-      if (data.success) {
-        setSubmitted(true)
-        formRef.current.reset()
-        setTimeout(() => setSubmitted(false), 4000)
-      } else {
-        setErrored(true)
-        setTimeout(() => setErrored(false), 5000)
+      const formData = new FormData(formRef.current)
+      const payload = {
+        fullName: formData.get('fullName'),
+        company: formData.get('company'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        product: formData.get('product'),
+        message: formData.get('message'),
       }
+
+      // Post to admin backend
+      const adminRes = await fetch('/api/admin/submissions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!adminRes.ok) throw new Error('Failed to save submission')
+
+      setSubmitted(true)
+      formRef.current.reset()
+      setTimeout(() => setSubmitted(false), 4000)
     } catch {
       setErrored(true)
       setTimeout(() => setErrored(false), 5000)
@@ -129,7 +164,7 @@ export default function DemoForm() {
                 </div>
                 <div className={`${styles.group} ${styles.full}`}>
                   <label htmlFor="product">Product Interest</label>
-                  <select id="product" name="product" required defaultValue="">
+                  <select id="product" name="product" ref={productRef} required defaultValue="">
                     <option value="" disabled>Select a product</option>
                     {products.map((p) => (
                       <option key={p} value={p}>{p}</option>

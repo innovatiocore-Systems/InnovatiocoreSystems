@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import type { StaticImageData } from 'next/image'
 import styles from './Products.module.css'
 import diagnosLogo from '../assets/products/diagnos-logo.png'
 import workovaLogo from '../assets/products/workova-logo.png'
@@ -6,7 +8,7 @@ interface Product {
   id: string
   badges: { label: string; color: string }[]
   /** Real logo file, when the product has one */
-  logo?: string
+  logo?: StaticImageData
   logoAlt?: string
   /** Fallback wordmark for products without a logo yet */
   mark?: { initials: string; name: string; tagline: string }
@@ -98,11 +100,7 @@ const products: Product[] = [
   },
 ]
 
-interface ProductsProps {
-  onPreselect?: (product: string) => void
-}
-
-export default function Products({ onPreselect }: ProductsProps) {
+export default function Products() {
   return (
     <section id="products" className={`section ${styles.section}`}>
       <div className="container">
@@ -142,7 +140,7 @@ export default function Products({ onPreselect }: ProductsProps) {
 
                 <div className={styles.logo}>
                   {p.logo ? (
-                    <img src={p.logo} alt={p.logoAlt} />
+                    <img src={p.logo.src} alt={p.logoAlt} />
                   ) : (
                     <div className={styles.wordmark}>
                       <span className={styles.monogram}>{p.mark!.initials}</span>
@@ -176,16 +174,15 @@ export default function Products({ onPreselect }: ProductsProps) {
                 </div>
 
                 <div className={styles.cta}>
-                  <a
-                    href="#demo"
+                  <Link
+                    href={`/contact?product=${encodeURIComponent(p.title)}`}
                     className={`btn ${p.featured ? "btn-brand" : "btn-primary"}`}
-                    onClick={() => onPreselect?.(p.title)}
                   >
                     Request a Demo
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>

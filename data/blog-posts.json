@@ -1,0 +1,61 @@
+[
+  {
+    "id": "7b0f2e3c-4d5e-4f60-9b2c-3d4e5f6a7b82",
+    "slug": "workova-erp-streamlines-overseas-recruitment",
+    "title": "From Application to Abroad: How Workova ERP Streamlines Overseas Recruitment",
+    "excerpt": "Manpower agencies juggle candidates, documents, employers and compliance across borders. Here’s what it takes to keep that pipeline moving without losing track.",
+    "category": "Recruitment",
+    "date": "2026-07-29",
+    "readTime": "5 min read",
+    "image": null,
+    "status": "published",
+    "content": [
+      "Overseas recruitment is one of the most document-heavy, compliance-sensitive processes in any industry. A single candidate’s file can involve dozens of documents, several verification steps, and multiple stakeholders — the agency, the employer, and the candidate themselves.",
+      "When that process runs on email threads and shared folders, things get lost. Deadlines slip. Verification steps get skipped under pressure. And nobody has a clear view of where any single candidate actually stands.",
+      "Workova ERP was built specifically for this workflow. Every agency gets its own branded, secure portal, candidates are tracked from initial registration through eligibility checks, job matching and deployment — with a full audit trail at every step.",
+      "Approval workflows mean nothing moves forward without the right sign-off, and document management keeps every verification proof attached to the record it belongs to, not buried in an inbox.",
+      "The result: agencies spend less time chasing paperwork and more time placing candidates — with reporting that shows exactly where every application stands, from application to abroad."
+    ],
+    "createdAt": "2026-07-29T00:00:00.000Z",
+    "updatedAt": "2026-07-29T00:00:00.000Z"
+  },
+  {
+    "id": "8c1a3f4d-5e6f-4071-ac3d-4e5f6a7b8c93",
+    "slug": "modern-event-management-software-guide",
+    "title": "Running Events Without the Chaos: A Guide to Modern Event Management Software",
+    "excerpt": "From a single workshop to a multi-day conference, the difference between a smooth event and a stressful one usually comes down to the systems behind it.",
+    "category": "Events",
+    "date": "2026-07-10",
+    "readTime": "4 min read",
+    "image": null,
+    "status": "published",
+    "content": [
+      "Anyone who has run an event knows the real work happens before doors open: registrations to track, tickets to sell, sessions to schedule, and vendors to coordinate — often all at once.",
+      "Spreadsheets can handle a small workshop. They start to break down the moment you add multiple sessions, tiered ticketing, or an on-ground check-in desk that needs to move fast.",
+      "A dedicated platform like InnoEvent handles registration and ticket sales online, generates QR codes for instant check-in, and gives organisers a live dashboard of attendance as the event unfolds — instead of a headcount guessed at the door.",
+      "Sponsor, speaker and vendor management live in the same system, so nothing depends on a single person’s inbox. And post-event reporting turns attendance data into something you can actually act on for the next one.",
+      "The goal isn’t just to digitise your event — it’s to remove the chaos that comes from coordinating too many moving pieces by hand."
+    ],
+    "createdAt": "2026-07-10T00:00:00.000Z",
+    "updatedAt": "2026-07-10T00:00:00.000Z"
+  },
+  {
+    "id": "9d2b4a5e-6f70-4182-bd4e-5f6a7b8c9da4",
+    "slug": "coworking-spaces-need-more-than-booking-calendar",
+    "title": "Why Co-Working Spaces Need More Than a Booking Calendar",
+    "excerpt": "Desk bookings are just the visible part. Behind every well-run co-working space is a system handling billing, access and renewals without anyone noticing.",
+    "category": "Workspaces",
+    "date": "2026-06-22",
+    "readTime": "3 min read",
+    "image": null,
+    "status": "published",
+    "content": [
+      "A shared calendar can tell members which desks are free. What it can’t do is handle billing, membership renewals, access control, or occupancy trends — and those are the things that actually determine whether a co-working space runs profitably.",
+      "CoreSpace was built to cover the full operational picture: desks, cabins and meeting rooms booked and billed automatically, member plans and contracts tracked to renewal, and visitor check-in tied to real access control rather than a sign-in sheet at the front desk.",
+      "Operators get occupancy and utilisation analytics that show which spaces are actually earning their square footage — data that a booking calendar was never designed to provide.",
+      "The difference shows up at the end of the month: fewer manual invoices, fewer missed renewals, and a much clearer picture of how the space is really being used."
+    ],
+    "createdAt": "2026-06-22T00:00:00.000Z",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  }
+]

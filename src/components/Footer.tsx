@@ -1,12 +1,13 @@
+import Link from 'next/link'
 import styles from './Footer.module.css'
 
 const navLinks = [
-  { label: 'Home',     href: '#hero' },
-  { label: 'About',    href: '#about' },
-  { label: 'Products', href: '#products' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us',   href: '#why' },
-  { label: 'Contact',  href: '#demo' },
+  { label: 'Home',     href: '/' },
+  { label: 'About',    href: '/about' },
+  { label: 'Products', href: '/products' },
+  { label: 'Services', href: '/services' },
+  { label: 'Why Us',   href: '/why-us' },
+  { label: 'Contact',  href: '/contact' },
 ]
 
 const productLinks = [
@@ -54,7 +55,7 @@ export default function Footer() {
           <div className={styles.col}>
             <h4>Company</h4>
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href}>{l.label}</a>
+              <Link key={l.href} href={l.href}>{l.label}</Link>
             ))}
           </div>
 
@@ -62,7 +63,7 @@ export default function Footer() {
           <div className={styles.col}>
             <h4>Products</h4>
             {productLinks.map((p) => (
-              <a key={p} href="#products">{p}</a>
+              <Link key={p} href="/products">{p}</Link>
             ))}
           </div>
 

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './About.module.css'
 
 const steps = [
@@ -100,12 +101,12 @@ export default function About() {
             </ul>
 
             <div className={styles.cta}>
-              <a href="#products" className="btn btn-primary">
+              <Link href="/products" className="btn btn-primary">
                 View Our Products
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

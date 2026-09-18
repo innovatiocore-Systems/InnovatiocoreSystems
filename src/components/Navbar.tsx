@@ -1,44 +1,30 @@
+'use client'
+
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import styles from './Navbar.module.css'
 
 const links = [
-  { label: 'Home',     href: '#hero' },
-  { label: 'About',    href: '#about' },
-  { label: 'Products', href: '#products' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us',   href: '#why' },
-  { label: 'FAQ',      href: '#faq' },
-  { label: 'Contact',  href: '#demo' },
+  { label: 'Home',     href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'Services', href: '/services' },
+  { label: 'Why Us',   href: '/why-us' },
+  { label: 'FAQ',      href: '/faq' },
+  { label: 'Contact',  href: '/contact' },
+  { label: 'Blog',     href: '/blog' },
 ]
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('#hero')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // Highlight the section currently under the header
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-        if (visible) setActive(`#${visible.target.id}`)
-      },
-      { rootMargin: '-120px 0px -55% 0px', threshold: [0.05, 0.25, 0.5] }
-    )
-    links.forEach((l) => {
-      const el = document.querySelector(l.href)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
   }, [])
 
   // Close the mobile menu on Escape
@@ -49,44 +35,52 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
+  // Close the mobile menu whenever the route changes
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
+
   return (
     <header className={`${styles.shell} ${scrolled ? styles.scrolled : ''}`}>
       <div className="container">
         <nav className={styles.bar}>
           {/* Logo lockup */}
-          <a href="#hero" className={styles.logo} aria-label="InnovatioCore Systems — home">
+          <Link href="/" className={styles.logo} aria-label="InnovatioCore Systems — home">
             <img src="/logo.png" alt="" className={styles.logoImg} />
             <span className={styles.brandName}>InnovatioCore Systems</span>
-          </a>
+          </Link>
 
           {/* Links */}
           <ul className={`${styles.links} ${open ? styles.open : ''}`}>
             {links.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
-                  className={active === l.href ? styles.active : ''}
+                  className={isActive(l.href) ? styles.active : ''}
                   onClick={() => setOpen(false)}
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li className={styles.mobileCta}>
-              <a href="#demo" className="btn btn-primary" onClick={() => setOpen(false)}>
+              <Link href="/contact" className="btn btn-primary" onClick={() => setOpen(false)}>
                 Let&apos;s Talk
-              </a>
+              </Link>
             </li>
           </ul>
 
           {/* Right side */}
           <div className={styles.right}>
-            <a href="#demo" className={`btn btn-primary ${styles.cta}`}>
+            <Link href="/contact" className={`btn btn-primary ${styles.cta}`}>
               Let&apos;s Talk
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7M9 7h8v8" />
               </svg>
-            </a>
+            </Link>
 
             <button
               className={`${styles.hamburger} ${open ? styles.hOpen : ''}`}
