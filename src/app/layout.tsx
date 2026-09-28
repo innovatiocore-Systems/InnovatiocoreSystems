@@ -7,7 +7,7 @@ import '../App.css'
 export const metadata: Metadata = {
   title: 'InnovatioCore Systems — Core Solutions, Endless Possibilities',
   description:
-    'Core Solutions, Endless Possibilities — building intelligent software for healthcare, recruitment, events and shared workspaces.',
+    'Core Solutions, Endless Possibilities — building intelligent software for healthcare, recruitment, events, shared workspaces and project management.',
   icons: {
     icon: '/InnovatioCoreLogo.png',
   },

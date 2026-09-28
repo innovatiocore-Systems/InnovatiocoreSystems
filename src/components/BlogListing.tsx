@@ -15,7 +15,7 @@ export default function BlogListing({ posts }: { posts: BlogPost[] }) {
           <span className="section-label">Blog</span>
           <h2 className="section-title">Insights &amp; Updates</h2>
           <p className="section-sub">
-            Notes on building software for healthcare, recruitment, events and shared workspaces.
+            Notes on building software for healthcare, recruitment, events, shared workspaces and project management.
           </p>
         </div>
 

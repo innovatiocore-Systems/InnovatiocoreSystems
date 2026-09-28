@@ -15,6 +15,7 @@ const productLinks = [
   'Workova ERP',
   'Event Management System',
   'Co-Working Space System',
+  'Project & Issue Tracker',
 ]
 
 export default function Footer() {

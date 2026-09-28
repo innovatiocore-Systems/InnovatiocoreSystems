@@ -71,6 +71,12 @@
   flex-shrink: 0;
 }
 
+.mark .markIcon {
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+
 .word {
   display: flex;
   flex-direction: column;

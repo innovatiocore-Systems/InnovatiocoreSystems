@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styles from './PlatformStrip.module.css'
 import diagnosLogo from '../assets/products/diagnos-logo.png'
 import workovaLogo from '../assets/products/workova-logo.png'
+import innopmLogo from '../assets/products/innopm-logo.png'
 
 export default function PlatformStrip() {
   return (
@@ -37,6 +38,14 @@ export default function PlatformStrip() {
             <span className={styles.word}>
               CoreSpace
               <small>Co-Working System</small>
+            </span>
+          </Link>
+
+          <Link href="/products" className={`${styles.mark} ${styles.textMark}`}>
+            <img src={innopmLogo.src} alt="" className={styles.markIcon} />
+            <span className={styles.word}>
+              InnoPM
+              <small>Project &amp; Issue Tracker</small>
             </span>
           </Link>
 

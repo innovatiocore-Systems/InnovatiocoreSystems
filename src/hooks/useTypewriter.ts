@@ -5,6 +5,7 @@ const PHRASES = [
   'Workforce Management Systems',
   'Event Management Platforms',
   'Co-Working Space Systems',
+  'Project Management Tools',
   'Digital Transformation Tools',
   'Smart Business Automation',
 ]

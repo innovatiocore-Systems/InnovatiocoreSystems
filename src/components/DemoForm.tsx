@@ -9,6 +9,7 @@ const products = [
   'Workova ERP',
   'Event Management System',
   'Co-Working Space System',
+  'Project & Issue Tracker',
   'Multiple Products',
   'Custom Software / Other',
 ]

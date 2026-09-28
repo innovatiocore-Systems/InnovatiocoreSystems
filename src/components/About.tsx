@@ -85,7 +85,7 @@ export default function About() {
             </h2>
             <p className={styles.lead}>
               InnovatioCore Systems is a software company dedicated to building powerful, reliable
-              and scalable digital solutions — from healthcare to recruitment, events to workspaces.
+              and scalable digital solutions — from healthcare to recruitment, events, workspaces and project management.
             </p>
 
             <ul className={styles.steps}>
