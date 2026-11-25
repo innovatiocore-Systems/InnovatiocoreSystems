@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   icons: {
     icon: '/InnovatioCoreLogo.png',
   },
+  // Google Search Console ownership check — keep in place, removing it un-verifies the site
+  verification: {
+    google: 'i2sZSd9YU1Kg5cnH5w8gUTm1IPVOitZk5BpDgy33VdA',
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
