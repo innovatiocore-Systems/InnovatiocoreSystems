@@ -3,6 +3,7 @@ import type { StaticImageData } from 'next/image'
 import styles from './Products.module.css'
 import diagnosLogo from '../assets/products/diagnos-logo.png'
 import workovaLogo from '../assets/products/workova-logo.png'
+import innopmLogo from '../assets/products/innopm-logo.png'
 
 interface Product {
   id: string
@@ -10,8 +11,8 @@ interface Product {
   /** Real logo file, when the product has one */
   logo?: StaticImageData
   logoAlt?: string
-  /** Fallback wordmark for products without a logo yet */
-  mark?: { initials: string; name: string; tagline: string }
+  /** Wordmark for products without a wide logo; icon replaces the initials when set */
+  mark?: { initials?: string; icon?: StaticImageData; name: string; tagline: string }
   title: string
   description: string
   features: string[]
@@ -98,6 +99,25 @@ const products: Product[] = [
       'Community announcements & support desk',
     ],
   },
+  {
+    id: 'innopm',
+    badges: [
+      { label: 'Project Management', color: 'violet' },
+      { label: 'Software Teams', color: 'brand' },
+    ],
+    mark: { icon: innopmLogo, name: 'InnoPM', tagline: 'Project & Issue Tracker' },
+    title: 'Project & Issue Tracker',
+    description:
+      'A project and issue tracker for software teams. Plan work, track issues and follow progress in one place.',
+    features: [
+      'Projects and issues with status, priority, assignee and due date',
+      'Drag-and-drop Kanban board',
+      'Screenshot paste and file attachments on issues',
+      'Comments and activity history on every issue',
+      'Team roles and access control',
+      'Self-hosted, with backup and restore',
+    ],
+  },
 ]
 
 export default function Products() {
@@ -110,7 +130,7 @@ export default function Products() {
             Software That Solves<br />Industry Challenges
           </h2>
           <p className="section-sub">
-            Purpose-built platforms for healthcare, recruitment, events and shared workspaces —
+            Purpose-built platforms for healthcare, recruitment, events, shared workspaces and project management —
             designed with the end user in mind.
           </p>
         </div>
@@ -143,7 +163,11 @@ export default function Products() {
                     <img src={p.logo.src} alt={p.logoAlt} />
                   ) : (
                     <div className={styles.wordmark}>
-                      <span className={styles.monogram}>{p.mark!.initials}</span>
+                      {p.mark!.icon ? (
+                        <img src={p.mark!.icon.src} alt="" className={styles.markIcon} />
+                      ) : (
+                        <span className={styles.monogram}>{p.mark!.initials}</span>
+                      )}
                       <span className={styles.wordmarkText}>
                         {p.mark!.name}
                         <small>{p.mark!.tagline}</small>

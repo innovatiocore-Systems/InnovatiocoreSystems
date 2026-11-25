@@ -7,9 +7,13 @@ import '../App.css'
 export const metadata: Metadata = {
   title: 'InnovatioCore Systems — Core Solutions, Endless Possibilities',
   description:
-    'Core Solutions, Endless Possibilities — building intelligent software for healthcare, recruitment, events and shared workspaces.',
+    'Core Solutions, Endless Possibilities — building intelligent software for healthcare, recruitment, events, shared workspaces and project management.',
   icons: {
     icon: '/InnovatioCoreLogo.png',
+  },
+  // Google Search Console ownership check — keep in place, removing it un-verifies the site
+  verification: {
+    google: 'i2sZSd9YU1Kg5cnH5w8gUTm1IPVOitZk5BpDgy33VdA',
   },
 }
 

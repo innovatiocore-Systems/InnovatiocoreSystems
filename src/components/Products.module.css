@@ -17,6 +17,12 @@
   display: flex;
   flex-direction: column;
 }
+/* Odd card count: centre the last card at normal card width */
+.card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 12px);
+}
 .card:hover {
   transform: translateY(-6px);
   border-color: rgba(81,112,255,.45);
@@ -135,6 +141,12 @@
   flex-shrink: 0;
 }
 
+.logo .markIcon {
+  width: 38px;
+  border-radius: 11px;
+  flex-shrink: 0;
+}
+
 .wordmarkText {
   display: flex;
   flex-direction: column;
@@ -208,6 +220,7 @@
 
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
+  .card:last-child:nth-child(odd) { width: 100%; }
 }
 
 @media (max-width: 420px) {
@@ -215,4 +228,5 @@
   .badges { padding-right: 0; }
   .flag { position: static; margin-bottom: 14px; }
   .logo img { height: 32px; }
+  .logo .markIcon { width: 32px; }
 }

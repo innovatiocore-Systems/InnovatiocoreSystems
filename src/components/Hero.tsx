@@ -61,7 +61,7 @@ export default function Hero() {
 
           <p className={`${styles.sub} fade-in fade-in-delay-1`}>
             We design and build robust, scalable and future-ready platforms for healthcare,
-            recruitment, events and shared workspaces — engineered for the real world.
+            recruitment, events, shared workspaces and project management — engineered for the real world.
           </p>
 
           <div className={`${styles.actions} fade-in fade-in-delay-2`}>
